@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f7f7f4">
+  <meta name="description" content="NOW THERE — see local time, time difference and daily status anywhere in the world.">
+  <title>NOW THERE — What time is it there?</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="NOW THERE home">
+      <span class="brand-mark" aria-hidden="true">↗</span>
+      <span>NOW THERE</span>
+    </a>
+
+    <nav class="header-nav" aria-label="Primary navigation">
+      <a href="#dashboard">Dashboard</a>
+      <a href="#all-world">All world</a>
+      <button class="text-control" id="hourToggle" type="button" aria-label="Toggle 12 or 24 hour time">24H</button>
+      <button class="icon-control" id="themeToggle" type="button" aria-label="Toggle dark mode">◐</button>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero section-shell" aria-labelledby="hero-title">
+      <div class="hero-kicker">GLOBAL TIME DASHBOARD</div>
+      <h1 id="hero-title">
+        <span>What time is it there</span>
+        <span class="hero-muted">right now?</span>
+      </h1>
+
+      <div class="hero-meta">
+        <p>See local time, time difference and daily status across the world.</p>
+        <p>Add the places you check often and arrange your own global dashboard.</p>
+      </div>
+
+      <div class="search-wrap">
+        <label class="sr-only" for="globalSearch">Search country, city or timezone</label>
+        <div class="search-box">
+          <span class="search-icon" aria-hidden="true">⌕</span>
+          <input id="globalSearch" type="search" autocomplete="off" placeholder="Search country, city or timezone...">
+          <span class="search-shortcut" aria-hidden="true">/</span>
+        </div>
+        <div class="search-results" id="searchResults" hidden></div>
+      </div>
+
+      <div class="quick-section" aria-label="Popular world clocks">
+        <div class="quick-label">QUICK WORLD</div>
+        <div class="quick-grid" id="quickGrid"></div>
+      </div>
+    </section>
+
+    <section class="dashboard-section section-shell" id="dashboard" aria-labelledby="dashboard-title">
+      <div class="section-heading split-heading">
+        <div>
+          <div class="eyebrow">MY WORLD</div>
+          <h2 id="dashboard-title">Build your view.</h2>
+        </div>
+        <p>Drag cards to reorder them. Change the size of each module and your layout is saved in this browser.</p>
+      </div>
+
+      <div class="time-shift-panel">
+        <div class="time-shift-copy">
+          <span class="eyebrow">TIME SHIFT</span>
+          <strong id="shiftLabel">NOW</strong>
+        </div>
+        <label class="sr-only" for="timeShift">Move all clocks backward or forward in time</label>
+        <input id="timeShift" type="range" min="-24" max="24" step="1" value="0">
+        <button class="reset-time" id="resetShift" type="button">Back to now</button>
+      </div>
+
+      <div class="dashboard-grid" id="dashboardGrid" aria-live="polite"></div>
+    </section>
+
+    <section class="world-section" id="all-world" aria-labelledby="world-title">
+      <div class="section-shell">
+        <div class="section-heading split-heading">
+          <div>
+            <div class="eyebrow">ALL WORLD</div>
+            <h2 id="world-title">The world, right now.</h2>
+          </div>
+          <p>Browse every available country and region. Countries with multiple time zones can be searched by city or timezone above.</p>
+        </div>
+
+        <div class="world-toolbar">
+          <label class="world-filter">
+            <span class="sr-only">Filter countries</span>
+            <span aria-hidden="true">⌕</span>
+            <input id="countryFilter" type="search" placeholder="Filter countries...">
+          </label>
+          <span class="world-count" id="worldCount"></span>
+        </div>
+
+        <div class="world-grid" id="worldGrid"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer section-shell">
+    <div>
+      <strong>NOW THERE</strong>
+      <span>See the world, right now.</span>
+    </div>
+    <div class="footer-meta">Local 09:00–18:00 is used as the default workday status.</div>
+  </footer>
+
+  <script src="countries.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
