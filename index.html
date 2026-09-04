@@ -7,6 +7,7 @@
   <meta name="description" content="NOW THERE — see local time, time difference and daily status anywhere in the world.">
   <title>NOW THERE — What time is it there?</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="enhancements.css">
 </head>
 <body>
   <header class="site-header">
@@ -25,15 +26,25 @@
 
   <main id="top">
     <section class="hero section-shell" aria-labelledby="hero-title">
-      <div class="hero-kicker">GLOBAL TIME DASHBOARD</div>
+      <div class="hero-kicker">
+        <span class="kicker-mark" aria-hidden="true">↗</span>
+        <span>GLOBAL TIME DASHBOARD</span>
+      </div>
+
       <h1 id="hero-title">
-        <span>What time is it there</span>
-        <span class="hero-muted">right now?</span>
+        <span>What time is it</span>
+        <span>there, <em>right now?</em></span>
       </h1>
 
       <div class="hero-meta">
-        <p>See local time, time difference and daily status across the world.</p>
-        <p>Add the places you check often and arrange your own global dashboard.</p>
+        <p class="hero-copy">See local time, time difference and daily status anywhere in the world. Search a place, add it, and arrange your own view.</p>
+
+        <div class="local-now" aria-live="polite">
+          <span class="local-now-label">YOUR LOCAL TIME</span>
+          <strong id="localZoneLabel">Detecting location…</strong>
+          <span class="local-now-time" id="localClock">--:--:--</span>
+          <span class="local-now-status" id="localStatus">CHECKING</span>
+        </div>
       </div>
 
       <div class="search-wrap">
@@ -47,7 +58,10 @@
       </div>
 
       <div class="quick-section" aria-label="Popular world clocks">
-        <div class="quick-label">QUICK WORLD</div>
+        <div class="quick-heading">
+          <div class="quick-label">QUICK WORLD</div>
+          <div class="quick-hint">CLICK A CARD TO ADD</div>
+        </div>
         <div class="quick-grid" id="quickGrid"></div>
       </div>
     </section>
@@ -108,5 +122,6 @@
 
   <script src="countries.js"></script>
   <script src="app.js"></script>
+  <script src="ui.js"></script>
 </body>
 </html>
